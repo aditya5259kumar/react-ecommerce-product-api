@@ -5,6 +5,9 @@ import Productpage from "./component/Productpage";
 import CartPage from "./component/CartPage";
 import { Route, Routes } from "react-router-dom";
 
+import { useDispatch, useSelector } from "react-redux";
+import { getData } from "./redux/slice/productApi";
+
 export const ProductContext = createContext();
 
 const App = () => {
@@ -17,6 +20,25 @@ const App = () => {
   const [cartcount, setcartcount] = useState(0);
 
   const [cartItems, setcartItems] = useState([]);
+
+  // --------------------------------------------------------------------
+
+const dataApi = useSelector((state) => state.app);
+const dispatch = useDispatch();
+
+useEffect(() => {
+  dispatch(getData());
+}, [dispatch]); // ✅ fetch data once
+
+useEffect(() => {
+  if (dataApi?.data?.products) {
+    setData(dataApi.data.products);
+  }
+}, [dataApi]); // ✅ update local state when Redux updates
+
+console.log(Data)
+
+
 
   // login save info ---------------------------
 
@@ -31,7 +53,7 @@ const App = () => {
         setcartcount(userData.cartCount || 0);
       }
     } else {
-      //persist cartcount and cartitem even if user is logged in on not
+      // persist cartcount and cartitem even if user is logged in on not
       const savedCart = JSON.parse(localStorage.getItem("guestCart"));
       if (savedCart) {
         setcartItems(savedCart.cartItems || []);
@@ -62,33 +84,29 @@ const App = () => {
 
   // ------- product Api fetch--------------------
 
-  useEffect(() => {
-    async function ProductFunction() {
-      try {
-        const reponseAPI = await fetch("https://dummyjson.com/products");
+  // useEffect(() => {
+    // async function ProductFunction() {
+    //   try {
+    //     const reponseAPI = await fetch("https://dummyjson.com/products");
 
-        if (!reponseAPI.ok) {
-          throw new Error("Api did not fetched");
-        }
+    //     if (!reponseAPI.ok) {
+    //       throw new Error("Api did not fetched");
+    //     }
 
-        console.log(reponseAPI);
+    //     console.log(reponseAPI);
 
-        const responseData = await reponseAPI.json();
+    //     const responseData = await reponseAPI.json();
 
-        setData(responseData.products);
-      } catch (err) {
-        console.error(err);
-      } finally {
-        setload(false);
-      }
-    }
+    //     setData(responseData.products);
+    //   } catch (err) {
+    //     console.error(err);
+    //   } finally {
+    //     setload(false);
+    //   }
+    // }
 
-    ProductFunction();
-  }, []);
-
-  console.log(Data);
-
-  const [load, setload] = useState(true);
+    // ProductFunction();
+  // }, []);
 
   return (
     <>
@@ -121,10 +139,8 @@ const App = () => {
                   </p>
                 </div>
 
-                {load ? (
-                  <div className="Loading">
+                {getData.isLoading ? (
                     <h1>Loading...</h1>
-                  </div>
                 ) : (
                   <>
                     <ProductByCategory
