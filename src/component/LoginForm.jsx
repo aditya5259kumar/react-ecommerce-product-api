@@ -87,7 +87,7 @@ const LoginForm = ({
           Email Address
         </label>
         <div className="inputdiv">
-          <input
+          <input className="login-input"
             type="text"
             onChange={inputHandler}
             name="email"
@@ -102,7 +102,7 @@ const LoginForm = ({
           Password
         </label>
         <div className="inputdiv">
-          <input
+          <input className="login-input"
             type="password"
             onChange={inputHandler}
             name="password"

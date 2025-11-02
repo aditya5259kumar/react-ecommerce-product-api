@@ -59,7 +59,7 @@ const Navbar = ({ isLoggedin, setisLoggedin, formVisible, setformVisible }) => {
         </Link>
         <div id="login-cart">
           <button className="login-btn" onClick={handleLoginClick}>
-            {isLoggedin ? "Logout" : "Login"}{" "}
+            {isLoggedin ? "LogOut" : "Login"}{" "}
           </button>
 
           <Link to={showCart ? "/cart" : ""} onClick={cartShowFun}>

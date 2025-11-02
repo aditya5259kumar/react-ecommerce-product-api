@@ -8,6 +8,7 @@ import { GoStarFill } from "react-icons/go";
 import { MdOutlineInventory } from "react-icons/md";
 import { AiOutlineFileProtect } from "react-icons/ai";
 import { FaCheckCircle } from "react-icons/fa";
+import { FaUser } from "react-icons/fa6";
 import { toast } from "react-toastify";
 
 const Productpage = () => {
@@ -18,6 +19,8 @@ const Productpage = () => {
 
   const singleProduct = Data.find((item) => item.id === Number(id));
 
+  console.log(singleProduct, "singleProduct");
+
   if (!Data.length) {
     return (
       <div className="laoding">
@@ -26,10 +29,10 @@ const Productpage = () => {
     );
   }
 
-  const [mianImage, setmianImage] = useState(singleProduct.thumbnail);
+  const [mainImage, setmainImage] = useState(singleProduct.thumbnail);
 
   function ChangeToMainImg(image) {
-    setmianImage(image);
+    setmainImage(image);
   }
 
   const [cartcheck, setcartcheck] = useState(false);
@@ -77,7 +80,7 @@ const Productpage = () => {
             </div>
 
             <div className="ProductPage-img-container">
-              <img className="main-img" src={mianImage} alt="" />
+              <img className="main-img" src={mainImage} alt="" />
             </div>
           </div>
 
@@ -142,6 +145,53 @@ const Productpage = () => {
                   " Add to cart"
                 )}
               </button>
+            </div>
+
+            <div className="">
+              <h2 className="review-sec-head">Ratings & Reviews</h2>
+              <div>
+                <ul className="review-container">
+                  {singleProduct.reviews.map((item, index) => (
+                    <li key={index} className="review-card">
+                      <div className="review-header">
+                        <div className="reviewer-info">
+                          <div className="reviewer-avatar">
+                            <FaUser />
+                          </div>
+                          <div className="reviewer-details">
+                            <div className="reviewer-name">
+                              {item.reviewerName}
+                            </div>
+                            <div className="review-date">
+                              {new Date(item.date).toLocaleDateString("en-IN", {
+                                year: "numeric",
+                                month: "long",
+                                day: "numeric",
+                              })}
+                            </div>
+                          </div>
+                        </div>
+                        <div className="rating-stars">
+                          {[...Array(5)].map((_, i) => (
+                            <span
+                              key={i}
+                              className={`star ${
+                                i >= item.rating ? "empty" : ""
+                              }`}
+                            >
+                              <GoStarFill />
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="review-comment">{item.comment}</div>
+                      <span className="verified-badge">
+                        ✓ Verified Purchase
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>

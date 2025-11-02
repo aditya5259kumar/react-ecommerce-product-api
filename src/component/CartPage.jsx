@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import Footer from './Footer'
 import { ProductContext } from "../App";
 import "./CartPage.css";
 import { Link } from "react-router-dom";
@@ -218,10 +219,8 @@ const CartPage = () => {
           {/* end of billing box  */}
         </div>
       </div>
+      {/* <Footer/> */}
     </>
   );
 };
 export default CartPage;
-
-
-

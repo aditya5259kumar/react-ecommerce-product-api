@@ -14,7 +14,7 @@ const ProductByCategory = ({
 }) => {
   var settings = {
     dots: true,
-    infinite: true,
+    // infinite: true,
 
     autoplay: true,
     autoplaySpeed: 3000,
@@ -79,7 +79,8 @@ const ProductByCategory = ({
 
   return (
     <>
-      <section className="category-section container">
+      {/* category anchor target for hero quick-links: id is like category-fragrances */}
+      <section id={`category-${category.toLowerCase()}`} className="category-section container">
         <h2 className="category-section-head">{categoryHead}</h2>
         <div id="category-line"></div>
 

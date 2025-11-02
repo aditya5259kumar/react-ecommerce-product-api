@@ -7,6 +7,14 @@ import { Route, Routes } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
 import { getData } from "./redux/slice/productApi";
+import Footer from "./component/Footer";
+import Services from "./component/Services";
+import Hero from "./component/Hero";
+
+import { FaShippingFast } from "react-icons/fa";
+import { MdWorkspacePremium } from "react-icons/md";
+import { MdOutlineLocalOffer } from "react-icons/md";
+import { RiSecurePaymentFill } from "react-icons/ri";
 
 export const ProductContext = createContext();
 
@@ -21,24 +29,24 @@ const App = () => {
 
   const [cartItems, setcartItems] = useState([]);
 
+  // const ref = useRef(null)
+
   // --------------------------------------------------------------------
 
-const dataApi = useSelector((state) => state.app);
-const dispatch = useDispatch();
+  const dataApi = useSelector((state) => state.app);
+  const dispatch = useDispatch();
 
-useEffect(() => {
-  dispatch(getData());
-}, [dispatch]); // ✅ fetch data once
+  useEffect(() => {
+    dispatch(getData());
+  }, [dispatch]); // ✅ fetch data once
 
-useEffect(() => {
-  if (dataApi?.data?.products) {
-    setData(dataApi.data.products);
-  }
-}, [dataApi]); // ✅ update local state when Redux updates
+  useEffect(() => {
+    if (dataApi?.data?.products) {
+      setData(dataApi.data.products);
+    }
+  }, [dataApi]); // ✅ update local state when Redux updates
 
-console.log(Data)
-
-
+  console.log(Data);
 
   // login save info ---------------------------
 
@@ -82,32 +90,6 @@ console.log(Data)
     }
   }, [cartItems, cartcount, isLoggedin]);
 
-  // ------- product Api fetch--------------------
-
-  // useEffect(() => {
-    // async function ProductFunction() {
-    //   try {
-    //     const reponseAPI = await fetch("https://dummyjson.com/products");
-
-    //     if (!reponseAPI.ok) {
-    //       throw new Error("Api did not fetched");
-    //     }
-
-    //     console.log(reponseAPI);
-
-    //     const responseData = await reponseAPI.json();
-
-    //     setData(responseData.products);
-    //   } catch (err) {
-    //     console.error(err);
-    //   } finally {
-    //     setload(false);
-    //   }
-    // }
-
-    // ProductFunction();
-  // }, []);
-
   return (
     <>
       <ProductContext.Provider
@@ -126,44 +108,88 @@ console.log(Data)
             path="/"
             element={
               <>
-                <div className="main-head container">
-                  <h1>Shop Our Featured Collections</h1>
-                  <p>
-                    Lorem ipsum dolor sit Lorem ipsum dolor sit, amet
-                    consectetur adipisicing elit. Dolore, id ea alias quaerat
-                    temporibus neque culpa sequi quia voluptatem voluptate! amet
-                    consectetur, adipisicing elit. Ipsa dolore quia, non quasi
-                    error provident expedita, porro eum maxime facere ipsum?
-                    Aliquid, provident veritatis blanditiis cum nobis enim ipsum
-                    hic!
-                  </p>
-                </div>
+                <Hero />
 
-                {getData.isLoading ? (
+                <section className="features-section container">
+                  <div className="features-grid">
+                    <Services
+                      icon={<FaShippingFast />}
+                      head={"Free Shipping"}
+                      text={"When you spend $50 or more"}
+                    />
+                    <Services
+                      icon={<MdWorkspacePremium />}
+                      head={"Best Quality"}
+                      text={"Premium products from trusted brands"}
+                    />
+                    <Services
+                      icon={<MdOutlineLocalOffer />}
+                      head={"Best Offers"}
+                      text={"Amazing deals and discounts daily"}
+                    />
+                    <Services
+                      icon={<RiSecurePaymentFill />}
+                      head={"Secure Payments"}
+                      text={"100% secure payment methods"}
+                    />
+                  </div>
+                </section>
+
+                {/* Anchor target for Hero "Shop Now" button -> smooth-scrolls here */}
+                <section id="page-products">
+                  <div className="main-head container">
+                    <h2>Shop Our Featured Collections</h2>
+                    <p>
+                      Lorem ipsum dolor sit Lorem ipsum dolor sit, amet
+                      consectetur adipisicing elit. Dolore, id ea alias quaerat
+                      temporibus neque culpa sequi quia voluptatem voluptate!
+                      amet consectetur, adipisicing elit. Ipsa dolore quia, non
+                      quasi error provident expedita, porro eum maxime facere
+                      ipsum? Aliquid, provident veritatis blanditiis cum nobis
+                      enim ipsum hic!
+                    </p>
+                  </div>
+
+                  {getData.isLoading ? (
                     <h1>Loading...</h1>
-                ) : (
-                  <>
-                    <ProductByCategory
-                      category="fragrances"
-                      categoryHead="Scents You'll Love"
-                    />
-                    <ProductByCategory
-                      category="beauty"
-                      categoryHead="Glow-Up Deals"
-                      categoryText=""
-                    />
-                    <ProductByCategory
-                      category="furniture"
-                      categoryHead="Home Refresh Deals"
-                      categoryText=""
-                    />
-                    <ProductByCategory
-                      category="groceries"
-                      categoryHead="Everyday Essentials"
-                      categoryText=""
-                    />
-                  </>
-                )}
+                  ) : (
+                    <>
+                      <ProductByCategory
+                        category="fragrances"
+                        categoryHead="Scents You'll Love"
+                      />
+                      <ProductByCategory
+                        category="beauty"
+                        categoryHead="Glow-Up Deals"
+                        categoryText=""
+                      />
+
+                      <div className="discount-coupen-container container">
+                        <h2 className="dicount-bg-text">10% OFF</h2>
+                        <div className="discount-coupen">
+                          <div className="dicount-head">
+                            <h3>10% OFF Discount Coupons</h3>
+                            <p>
+                              Subscribe us to get 10% OFF on all the purchases
+                            </p>
+                          </div>
+                          <a className="discount-btn">EMAIL ME</a>
+                        </div>
+                      </div>
+
+                      <ProductByCategory
+                        category="furniture"
+                        categoryHead="Home Refresh Deals"
+                        categoryText=""
+                      />
+                      <ProductByCategory
+                        category="groceries"
+                        categoryHead="Everyday Essentials"
+                        categoryText=""
+                      />
+                    </>
+                  )}
+                </section>
               </>
             }
           />
@@ -172,6 +198,7 @@ console.log(Data)
           <Route path="/" element={<Productpage />} />
           <Route path="/cart" element={<CartPage />} />
         </Routes>
+        <Footer />
       </ProductContext.Provider>
     </>
   );

@@ -12,11 +12,11 @@
 #back-arrow-cart {
   width: 30px;
   height: 30px;
-  position: absolute;
-  top: 2px;
-  left: -73px;
   cursor: pointer;
   color: #404040;
+  position: fixed;
+  top: 123px;
+  left: 40px;
 }
 
 .cart-head {
@@ -42,7 +42,7 @@
 .empty-cart {
   background-color: white;
   padding: 3rem;
-  border-radius: 20px;
+  /* border-radius: 20px; */
   text-align: center;
   color: #999;
   border: 1px solid #d4d4d4;
@@ -55,7 +55,7 @@
 
 .cart-list-item {
   border: 1px solid #d4d4d4;
-  border-radius: 20px;
+  /* border-radius: 20px; */
   display: flex;
   align-items: center;
   background-color: white;
@@ -95,7 +95,7 @@
   color: #404040;
   font-weight: 600;
   margin-top: 0;
-  transition: all .2s;
+  transition: all 0.2s;
 }
 
 #discount-cart-div {
@@ -108,7 +108,7 @@
 #discount-cart-div .cartpage-discountPercentage {
   padding: 0.3rem 0.6rem;
   background-color: crimson;
-  border-radius: 8px;
+  /* border-radius: 8px; */
   color: #fff;
   font-weight: 600;
   font-size: 14px;
@@ -127,7 +127,7 @@
   display: inline-flex;
   align-items: center;
   border: 2px solid #e0e0e0;
-  border-radius: 8px;
+  /* border-radius: 8px; */
   overflow: hidden;
 }
 
@@ -202,7 +202,7 @@
 
 .billing-card {
   background-color: white;
-  border-radius: 20px;
+  /* border-radius: 20px; */
   border: 1px solid #d4d4d4;
   overflow: hidden;
 }
@@ -259,7 +259,7 @@
   background-color: #dc143c;
   color: white;
   border: none;
-  border-radius: 12px;
+  /* border-radius: 12px; */
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
@@ -273,7 +273,7 @@
   background-color: white;
   color: #222;
   border: 2px solid #222;
-  border-radius: 12px;
+  /* border-radius: 12px; */
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
@@ -305,6 +305,12 @@
 
   #back-arrow-cart {
     left: -50px;
+  }
+
+  #back-arrow-cart {
+    position: absolute;
+    top: 2px;
+    left: -40px;
   }
 }
 
