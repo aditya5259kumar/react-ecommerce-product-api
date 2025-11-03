@@ -1,16 +1,40 @@
-# React + Vite
+# 🛒 Orderly — Smart Shopping Simplified
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Using **React** and **Redux Toolkit**, Orderly is a contemporary eCommerce web application. 
+It fetches live product data from the **DummyJSON API** and provides a clean, functional shopping experience — complete with categories, reviews, login flow, and a working cart system.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+- **Live API Data:** Fetches products dynamically using Axios from DummyJSON API  
+- **Category Filtering:** Displays grouped products like Perfumes, Makeup, etc.  
+- **Product Details:** Dedicated product page with reviews  
+- **Cart System:** Add and remove items, calculate totals  
+- **Login Modal:** Local login and registration stored in browser localStorage  
+- **Protected Routes:** Cart page only accessible for logged-in users  
+- **Error & Loading Handling:** Smooth experience even when data fails or loads slowly  
+- **Responsive Design:** Optimized layout with Navbar and Footer  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🧠 Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React**
+- **Redux Toolkit**
+- **Axios**
+- **React Router DOM**
+- **Vite**
+- **CSS**
+
+---
+
+## 🔐 Authentication Logic
+
+Orderly uses a simple local authentication model for demo purposes:
+
+- If a new user logs in, a new account is created and saved to localStorage  
+- If the email already exists, password validation occurs  
+- On logout, the session clears but credentials persist locally  
+
+*(Note: This is not production-grade authentication — built only for learning purposes.)*
