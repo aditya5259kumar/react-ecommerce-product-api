@@ -11,8 +11,8 @@ export const getData = createAsyncThunk(
         throw new Error("Api did not fetched");
       }
 
-      console.log(reponseAPI,"reponseAPI");
-      console.log(reponseAPI.data,"reponseAPI.data");
+      console.log(reponseAPI, "reponseAPI");
+      console.log(reponseAPI.data, "reponseAPI.data");
 
       return reponseAPI.data;
     } catch (err) {

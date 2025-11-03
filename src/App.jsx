@@ -38,13 +38,13 @@ const App = () => {
 
   useEffect(() => {
     dispatch(getData());
-  }, [dispatch]); // ✅ fetch data once
+  }, [dispatch]);
 
   useEffect(() => {
     if (dataApi?.data?.products) {
       setData(dataApi.data.products);
     }
-  }, [dataApi]); // ✅ update local state when Redux updates
+  }, [dataApi]);
 
   console.log(Data);
 
@@ -135,7 +135,6 @@ const App = () => {
                   </div>
                 </section>
 
-                {/* Anchor target for Hero "Shop Now" button -> smooth-scrolls here */}
                 <section id="page-products">
                   <div className="main-head container">
                     <h2>Shop Our Featured Collections</h2>
@@ -150,8 +149,10 @@ const App = () => {
                     </p>
                   </div>
 
-                  {getData.isLoading ? (
-                    <h1>Loading...</h1>
+                  {dataApi.isLoading ? (
+                    <h4 className='error-loading-state'>Loading...</h4>
+                  ): dataApi.isError ? (
+                    <h4 className='error-loading-state'>Something went wrong!</h4>
                   ) : (
                     <>
                       <ProductByCategory

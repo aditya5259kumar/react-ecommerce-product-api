@@ -382,9 +382,11 @@ html {
 
 /* ------------------ loading text -------------------  */
 
-.Loading h1 {
+.error-loading-state {
   text-align: center;
-  color: #666;
+  color:#b2b2b2;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 /* ------------------ discount-coupen-container ---------------- */
