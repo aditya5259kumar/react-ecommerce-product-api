@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ProductContext } from "../App";
 import { HiMiniShoppingCart } from "react-icons/hi2";
 import { toast } from "react-toastify";
-import logoImg from '../assets/logo-img.png';
+import logoImgBlack from '../assets/logoImg-black.png';
 import LoginForm from "./LoginForm";
 
 const Navbar = ({ isLoggedin, setisLoggedin, formVisible, setformVisible }) => {
@@ -52,7 +52,7 @@ const Navbar = ({ isLoggedin, setisLoggedin, formVisible, setformVisible }) => {
       <div className="navbar container">
         <Link to="/">
           <span className="logo">
-            <img src={logoImg} alt="logo-img" id='logo-img'/>Orderly
+            <img src={logoImgBlack} alt="logo-img" id='logo-img'/>Orderly
           </span>
         </Link>
         <div id="login-cart">

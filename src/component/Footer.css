@@ -64,6 +64,20 @@
   width: 100%;
 }
 
+.footer-logo{
+  font-size: 30px;
+  font-weight: 700;
+  color: #FFF;
+  padding-top: 2rem;
+  display: block;
+}
+
+#footer-logo-img{
+    width: 27px;
+  margin-right: 4px;
+  display: inline-block;
+}
+
 .social-icon:hover {
   transform: translateY(-3px);
 }

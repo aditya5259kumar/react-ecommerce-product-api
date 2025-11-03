@@ -1,8 +1,8 @@
 import React from "react";
-import hero1 from '../assets/1.webp';
-import hero2 from '../assets/2.webp';
-import hero3 from '../assets/3.webp';
-import hero4 from '../assets/4.webp';
+import hero1 from '../assets/thumbnail1.webp';
+import hero2 from '../assets/thumbnail2.webp';
+import hero3 from '../assets/thumbnail3.webp';
+import hero4 from '../assets/thumbnail4.webp';
 import { FaArrowRight } from "react-icons/fa6";
 
 

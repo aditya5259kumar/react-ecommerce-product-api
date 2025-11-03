@@ -1,8 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import iconPay01 from "../assets/icon-pay-01.png";
 import iconPay02 from "../assets/icon-pay-02.png";
 import iconPay03 from "../assets/icon-pay-03.png";
 import iconPay04 from "../assets/icon-pay-04.png";
+import logoImgWhite from '../assets/logoImg-white.png'
 import "./Footer.css";
 
 const Footer = () => {
@@ -30,6 +32,13 @@ const Footer = () => {
               <a href="#" className="social-icon">
                 <img src={iconPay04} alt="" />
               </a>
+            </div>
+            <div>
+              <Link to="/">
+          <span className="footer-logo">
+            <img src={logoImgWhite} alt="logo-img" id='footer-logo-img'/>Orderly
+          </span>
+        </Link>
             </div>
           </div>
 
