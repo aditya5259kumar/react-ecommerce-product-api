@@ -3,6 +3,11 @@
 Using **React** and **Redux Toolkit**, Orderly is a contemporary eCommerce web application. 
 It fetches live product data from the **DummyJSON API** and provides a clean, functional shopping experience — complete with categories, reviews, login flow, and a working cart system.
 
+
+## 🌐 Live Demo  
+👉 [**View on Netlify**](https://orderlystore.netlify.app/)  
+
+
 ---
 
 ## 🚀 Features
