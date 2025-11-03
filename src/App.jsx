@@ -173,7 +173,7 @@ const App = () => {
                               Subscribe us to get 10% OFF on all the purchases
                             </p>
                           </div>
-                          <a className="discount-btn">EMAIL ME</a>
+                          <a className="discount-btn" href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox">EMAIL ME</a>
                         </div>
                       </div>
 

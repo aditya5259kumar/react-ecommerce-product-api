@@ -2,9 +2,8 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { ProductContext } from "../App";
 import { HiMiniShoppingCart } from "react-icons/hi2";
-import { MdOutlineDiscount } from "react-icons/md";
 import { toast } from "react-toastify";
-
+import logoImg from '../assets/logo-img.png';
 import LoginForm from "./LoginForm";
 
 const Navbar = ({ isLoggedin, setisLoggedin, formVisible, setformVisible }) => {
@@ -53,8 +52,7 @@ const Navbar = ({ isLoggedin, setisLoggedin, formVisible, setformVisible }) => {
       <div className="navbar container">
         <Link to="/">
           <span className="logo">
-            <MdOutlineDiscount id="logo-icon" />
-            Orderly
+            <img src={logoImg} alt="logo-img" id='logo-img'/>Orderly
           </span>
         </Link>
         <div id="login-cart">

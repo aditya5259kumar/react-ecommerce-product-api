@@ -158,6 +158,12 @@ html {
   color: #222;
 }
 
+#logo-img{
+  width: 27px;
+  margin-right: 4px;
+  display: inline-block;
+}
+
 .navbar .logo {
   font-size: 30px;
   font-weight: 700;
@@ -178,11 +184,11 @@ html {
   position: relative;
 }
 
-.navbar #logo-icon {
+/* .navbar #logo-icon {
   transform: translateY(8px);
   padding-right: 4px;
   font-size: 32px;
-}
+} */
 
 .navbar #cart-count {
   z-index: 1;
