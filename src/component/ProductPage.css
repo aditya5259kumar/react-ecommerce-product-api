@@ -427,3 +427,53 @@
     left: 15px;
   }
 }
+
+
+
+/* --------------------------*/
+
+/* Customize pagination dots */
+.product-grid .swiper-pagination-bullet {
+  background: #333;
+}
+
+.product-grid .swiper-pagination-bullet-active {
+  background: #222;
+}
+
+/* Customize navigation arrows */
+.product-grid .swiper-button-next,
+.product-grid .swiper-button-prev {
+  color: #222;
+}
+
+/* Make arrows smaller on mobile */
+@media (max-width: 640px) {
+  .product-grid .swiper-button-next,
+  .product-grid .swiper-button-prev {
+    width: 30px;
+    height: 30px;
+     transform: translateY(-50%);
+  }
+  
+  .product-grid .swiper-button-next::after,
+  .product-grid .swiper-button-prev::after {
+    font-size: 20px;
+  }
+}
+
+.product-grid {
+  padding-bottom: 35px !important;
+}
+
+.product-grid .swiper-pagination {
+  bottom: 10px !important;
+}
+
+.product-grid .swiper-button-next,
+.product-grid .swiper-button-prev {
+  top: 40%;
+  transform: translateY(-50%);
+  margin-top: 0;
+}
+

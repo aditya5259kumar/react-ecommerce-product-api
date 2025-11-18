@@ -184,12 +184,6 @@ html {
   position: relative;
 }
 
-/* .navbar #logo-icon {
-  transform: translateY(8px);
-  padding-right: 4px;
-  font-size: 32px;
-} */
-
 .navbar #cart-count {
   z-index: 1;
   position: absolute;

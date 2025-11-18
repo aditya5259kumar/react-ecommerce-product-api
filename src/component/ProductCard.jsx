@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { GoStarFill } from "react-icons/go";
 import { Link } from "react-router-dom";
 
 const ProductCard = ({ product, cartcount, setcartcount }) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
     <Link to={`/product/${product.id}`} style={{ display: "block" }}>
       <div
@@ -12,7 +14,13 @@ const ProductCard = ({ product, cartcount, setcartcount }) => {
         setcartcount={setcartcount}
       >
         <div className="img-container">
-          <img src={product.thumbnail} alt={product.title} />
+          {!imageLoaded && <div>Loading...</div>}
+          <img 
+            src={product.thumbnail} 
+            alt={product.title}
+            onLoad={() => setImageLoaded(true)}
+            style={{ display: imageLoaded ? 'block' : 'none' }}
+          />
           <div id="product-discount">
             {Math.round(product.discountPercentage)}% off
           </div>
